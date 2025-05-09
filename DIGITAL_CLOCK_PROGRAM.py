@@ -7,13 +7,21 @@ from PyQt5.QtMultimedia import QSound
 class DigitalClock(QWidget):
     def __init__(self):
         super().__init__()
+        # Timer to update the time every second
         self.timer = QTimer(self)
+        # Main label to display the current time
         self.time_label = QLabel(self)
+        # Set window icon (make sure the file exists)
         self.setWindowIcon(QIcon("clock.png"))
+         # Sound that plays each second (make sure the file exists)
         self.sound = QSound("ticking-clock_1-27477.wav")
-        self.date_label = QLabel(self)  # Date label to display the date
-        self.toggle_date_button = QPushButton("Show Date", self)  # Button to toggle date
-        self.date_visible = False  # Initial state of the date visibility
+        # Date label to display the date
+        self.date_label = QLabel(self)  
+         # Button to toggle date visibility
+        self.toggle_date_button = QPushButton("Show Date", self) 
+        # Set the initial visibility of the date label
+        self.date_label.setVisible(False)
+        self.date_visible = False  
 
         self.initUI()
 
